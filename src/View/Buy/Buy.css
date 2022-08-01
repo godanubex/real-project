@@ -1,0 +1,38 @@
+.Buy {
+    text-align: center;
+  }
+  
+  .buy-section{
+    padding: 30px;
+  }
+  .buy-container{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Buy-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 16px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+  }
+
+  
+  .Buy-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
