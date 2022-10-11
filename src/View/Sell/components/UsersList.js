@@ -10,19 +10,19 @@ const UsersList = () => {
 
   return (
     <div className={styles.userList}>
-      <h1>Users list</h1>
+      <h1>คลังสินค้า</h1>
       <div className={styles.tableFlow}>
         <form>
           <table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>City</th>
-                <th>Street</th>
-                <th>House number</th>
-                <th>Zip Code</th>
-                <th>Coordinates</th>
+                <th>ชื่อสินค้า</th>
+                <th>ชื่อไลน์</th>
+                <th>รูปภาพ</th>
+                <th>คำอธิบายสินค้า</th>
+                <th>จำนวนสินค้า</th>
+                <th>ราคาสินค้า</th>
+                <th></th>
                 <th>Actions</th>
               </tr>
             </thead>

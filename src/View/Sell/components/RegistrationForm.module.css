@@ -4,7 +4,7 @@
 
 .formStyle {
   padding: 20px;
-  border: 1px solid rgb(75, 23, 232);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 20px;
   max-width: 350px;
 }
@@ -18,7 +18,7 @@
 .formControl {
   width: 200px;
   margin-left: 10px;
-  color: #1672ce;
+  color: #000000;
   border: 1px solid #097aec;
   border-radius: 0.25rem;
 }

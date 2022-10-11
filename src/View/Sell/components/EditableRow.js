@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import UsersContext from "../store/users-context";
 import Button from "./UI/Button";
+import axios from "axios";
+import RegistrationForm from "./RegistrationForm";
+
 
 const EditableRow = () => {
   const usersCtx = useContext(UsersContext);
+  
 
   return (
     <tr>
@@ -19,10 +23,10 @@ const EditableRow = () => {
       </td>
       <td>
         <input
-          type="email"
-          placeholder="Enter email"
-          name="email"
-          value={usersCtx.editUserData.email}
+          type="text"
+          placeholder="Enter linename"
+          name="linename"
+          value={usersCtx.editUserData.linename}
           onChange={usersCtx.onEditInputChange}
           required
         ></input>
@@ -30,9 +34,9 @@ const EditableRow = () => {
       <td>
         <input
           type="text"
-          placeholder="Enter city"
-          name="city"
-          value={usersCtx.editUserData.city}
+          placeholder="Enter Pic"
+          name="Pic"
+          value={usersCtx.editUserData.Pic}
           onChange={usersCtx.onEditInputChange}
           required
         ></input>
@@ -40,9 +44,9 @@ const EditableRow = () => {
       <td>
         <input
           type="text"
-          placeholder="Enter name"
-          name="street"
-          value={usersCtx.editUserData.street}
+          placeholder="Enter exp"
+          name="exp"
+          value={usersCtx.editUserData.exp}
           onChange={usersCtx.onEditInputChange}
           required
         ></input>
@@ -50,9 +54,9 @@ const EditableRow = () => {
       <td>
         <input
           type="text"
-          placeholder="Enter house number"
-          name="houseNumber"
-          value={usersCtx.editUserData.houseNumber}
+          placeholder="Enter ProNumber"
+          name="ProNumber"
+          value={usersCtx.editUserData.ProNumber}
           onChange={usersCtx.onEditInputChange}
           required
         ></input>
@@ -60,9 +64,9 @@ const EditableRow = () => {
       <td>
         <input
           type="number"
-          placeholder="Enter zip code"
-          name="zipCode"
-          value={usersCtx.editUserData.zipCode}
+          placeholder="Enter price"
+          name="price"
+          value={usersCtx.editUserData.price}
           onChange={usersCtx.onEditInputChange}
           required
         ></input>
@@ -70,11 +74,13 @@ const EditableRow = () => {
       <td></td>
       <td>
         <Button type="submit" onClick={usersCtx.onEditSave}>
+         
           Save
         </Button>
       </td>
     </tr>
   );
 };
+
 
 export default EditableRow;

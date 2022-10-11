@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import axios from 'axios';
 
 let isInitial = true;
 
@@ -7,11 +8,11 @@ const UsersContext = createContext({
   editUserId: null,
   editUserData: {
     name: "",
-    email: "",
-    city: "",
-    street: "",
-    houseNumber: "",
-    zipCode: "",
+    linename: "",
+    Pic: "",
+    exp: "",
+    ProNumber: "",
+    price: "",
   },
   onAddUserHandler: (user) => {},
   onDeleteHandler: (event, userId) => {},
@@ -25,11 +26,11 @@ export function UsersContextProvider(props) {
   const [editUserId, setEditUserId] = useState(null);
   const [editUserData, setEditUserData] = useState({
     name: "",
-    email: "",
-    city: "",
-    street: "",
-    houseNumber: "",
-    zipCode: "",
+    linename: "",
+    Pic: "",
+    exp: "",
+    ProNumber: "",
+    price: "",
   });
 
   useEffect(() => {
@@ -47,19 +48,30 @@ export function UsersContextProvider(props) {
   };
 
   const onDeleteHandler = (event, userId) => {
+   
     event.preventDefault();
     const updatedUsers = users.filter((user) => user.id !== userId);
     setUsers(updatedUsers);
+
+    let str1 = 'ssss' + 1; //ssss1
+    let str = `ssss${1}` //ssss1
+    console.log('Im here ====> : http://localhost:3001/delete/'+ userId)
+    axios.post('http://localhost:3001/delete/'+ userId, (res)=>{
+
+    })
   };
+  
 
   const onEditInputChangeHandler = (event) => {
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
-
+ console.log("123")
     const newUserData = { ...editUserData };
     newUserData[fieldName] = fieldValue;
+console.log(newUserData)
 
     setEditUserData(newUserData);
+    console.log(newUserData,"Userdata")
   };
 
   const onEditHandler = (event, user) => {
@@ -68,37 +80,57 @@ export function UsersContextProvider(props) {
 
     const formValues = {
       name: user.name,
-      email: user.email,
-      city: user.city,
-      street: user.street,
-      houseNumber: user.houseNumber,
-      zipCode: user.zipCode,
+      linename: user.linename,
+      Pic: user.Pic,
+      exp: user.exp,
+      ProNumber: user.ProNumber,
+      price: user.price,
     };
-
     setEditUserData(formValues);
   };
 
   const onEditSaveHandler = (event) => {
     event.preventDefault();
-
+   console.log(editUserData.map)
     const editedUser = {
       id: editUserId,
       name: editUserData.name,
-      email: editUserData.email,
-      city: editUserData.city,
-      street: editUserData.street,
-      houseNumber: editUserData.houseNumber,
-      zipCode: editUserData.zipCode,
+      linename: editUserData.linename,
+      Pic: editUserData.Pic,
+      exp: editUserData.exp,
+      ProNumber: editUserData.ProNumber,
+      price: editUserData.price,
     };
 
     const updatedUsers = [...users];
     const index = users.findIndex((user) => user.id === editUserId);
     updatedUsers[index] = editedUser;
 
+   
+   const updateEmployee = (id) => {
+      axios.post('http://localhost:3001/update', {formValues:editUserData, id:id}).then((response)=>{
+        setEditUserData(
+          editUserData.map((val)=>{
+            return val.id == id ?{
+              id: val.id,
+              name: editUserData.name,
+              linename: editUserData.linename,
+              Pic: editUserData.Pic,
+              exp: editUserData.exp,
+              ProNumber: editUserData.ProNumber,
+              price: editUserData.price
+            }:val;
+           } )
+        )
+      })
+    }
+    
     setUsers(updatedUsers);
     setEditUserId(null);
+    
   };
-
+  
+ 
   const context = {
     users: users,
     editUserId: editUserId,
