@@ -3,7 +3,7 @@ import UsersContext from "../store/users-context";
 import Button from "./UI/Button";
 import axios from "axios";
 import RegistrationForm from "./RegistrationForm";
-
+import ReactDOM  from "react-dom";
 
 const EditableRow = () => {
   const usersCtx = useContext(UsersContext);
@@ -33,7 +33,7 @@ const EditableRow = () => {
       </td>
       <td>
         <input
-          type="text"
+          type="file"
           placeholder="Enter Pic"
           name="Pic"
           value={usersCtx.editUserData.Pic}

@@ -3,8 +3,9 @@ function BuyItem(props){
     const{Food, onFoodClick} = props;
     return(
         <div className='Buy-item'>
-                <img src={Food.thumnailUrl} onClick={()=>{onFoodClick(Food)}}/>
-                <h4>{Food.title}</h4>
+                <img src={'data:image/png;base64,'+Food.Picture} onClick={()=>{onFoodClick(Food)}}/>
+               
+                <h4>{Food.Product}</h4>
             </div>
     )
 }

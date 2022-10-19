@@ -24,6 +24,14 @@
     background-color: black;
 
 }
+.food-post-Doc{
+    position: relative;
+    display: flex;
+    text-align: start;
+    max-height: 3000;
+    background-color: rgb(255, 255, 255);
+
+}
 .food-post-content img{
     display: block;
     max-width: 100%;

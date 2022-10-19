@@ -20,8 +20,7 @@ root.render(
   <BrowserRouter>
     <UsersContextProvider>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="Sell" element={<Sell /> } />
+      <Route path="/" element={<Sell />} />
       <Route path="Buy" element={<Buy />} />
    {/*   <Route path="expenses" element={<Expenses />} />
       <Route path="invoices" element={<Invoices />} />
