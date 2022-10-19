@@ -34,7 +34,7 @@ class Appp extends React.Component{
 const RegistrationForm = () => {
   const usersCtx = useContext(UsersContext);
   useEffect(() => {
-    const url = 'http://localhost:3001/books';
+    const url = 'http://178.128.119.167:3001/books';
 
     axios.get(url).then((response) => {
       // handle success
@@ -109,13 +109,13 @@ const uploadImage = async (event) => {
 
   const [storeList, setStoreList] = useState([]);
   const getStore = () => {
-    axios.get('http://localhost:3001/store').then((response) => {
+    axios.get('http://178.128.119.167:3001/store').then((response) => {
       setStoreList(response.data);
     
     })
   }
   const updateStoreLineName = (id) => {
-    axios.put('http://localhost:3001/updateline', { linename: newLinename, id: id }).then((response) => {
+    axios.put('http://178.128.119.167:3001/updateline', { linename: newLinename, id: id }).then((response) => {
       setStoreList(
         storeList.map((val) => {
           return val.id == id ? {
@@ -132,7 +132,7 @@ const uploadImage = async (event) => {
     })
   }
   const updateStoreName = (id) => {
-    axios.put('http://localhost:3001/update', { name: newName, id: id }).then((response) => {
+    axios.put('http://l178.128.119.167:3001/update', { name: newName, id: id }).then((response) => {
       setStoreList(
         storeList.map((val) => {
           return val.id == id ? {
@@ -149,7 +149,7 @@ const uploadImage = async (event) => {
     })
   }
   const updateStoreExp = (id) => {
-    axios.put('http://localhost:3001/updateexp', { exp: newExp, id: id }).then((response) => {
+    axios.put('http://178.128.119.167:3001/updateexp', { exp: newExp, id: id }).then((response) => {
       setStoreList(
         storeList.map((val) => {
           return val.id == id ? {
@@ -166,7 +166,7 @@ const uploadImage = async (event) => {
     })
   }
   const updateStorePronumber = (id) => {
-    axios.put('http://localhost:3001/updatepro', { ProNumber: newProNumber, id: id }).then((response) => {
+    axios.put('http://178.128.119.167:3001/updatepro', { ProNumber: newProNumber, id: id }).then((response) => {
       setStoreList(
         storeList.map((val) => {
           return val.id == id ? {
@@ -183,7 +183,7 @@ const uploadImage = async (event) => {
     })
   }
   const updateStorePrice = (id) => {
-    axios.put('http://localhost:3001/updateprice', { price: newPrice, id: id }).then((response) => {
+    axios.put('http://178.128.119.167:3001/updateprice', { price: newPrice, id: id }).then((response) => {
       setStoreList(
         storeList.map((val) => {
           return val.id == id ? {
@@ -200,7 +200,7 @@ const uploadImage = async (event) => {
     })
   }
   const deleteStore = (id)=>{
-    axios.delete(`http://localhost:3001/delete/${id}`).then((response)=>{
+    axios.delete(`http://178.128.119.167:3001/delete/${id}`).then((response)=>{
       setStoreList(
         storeList.filter((val)=>{
           return val.id != id;
@@ -213,7 +213,7 @@ const uploadImage = async (event) => {
   const submitHandler = (event) => {
     console.log(addFormData)
 
-    axios.post('http://localhost:3001/books', addFormData);
+    axios.post('http://178.128.119.167:3001/books', addFormData);
     event.preventDefault();
 
     initVal = true;
@@ -239,7 +239,7 @@ const uploadImage = async (event) => {
       <form className={styles.formStyle} 
       //onSubmit={submitHandler}
       
-      action="http://localhost:3001/books"
+      action="http://178.128.119.167:3001/books"
       enctype = "multipart/form-data"
       method="POST"
       >

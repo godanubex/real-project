@@ -13,7 +13,7 @@ function Buy(){
     const [searchText, setSearchText] = useState('');
     const [Foods,setData] = useState(null);
     useEffect(()=>{
-        axios.get('http://localhost:3001/store').then((response) => {
+        axios.get('http://178.128.119.167:3001/store').then((response) => {
             setData(response.data);
               })
     }
