@@ -55,8 +55,8 @@ export function UsersContextProvider(props) {
 
     let str1 = 'ssss' + 1; //ssss1
     let str = `ssss${1}` //ssss1
-    console.log('Im here ====> : http://178.128.119.167:3001/delete/'+ userId)
-    axios.post('http://178.128.119.167:3001/delete/'+ userId, (res)=>{
+    console.log('Im here ====> : http://159.223.37.95:3001/delete/'+ userId)
+    axios.post('http://159.223.37.95:3001/delete/'+ userId, (res)=>{
 
     })
   };
@@ -108,7 +108,7 @@ console.log(newUserData)
 
    
    const updateEmployee = (id) => {
-      axios.post('http://178.128.119.167:3001/update', {formValues:editUserData, id:id}).then((response)=>{
+      axios.post('http://159.223.37.95:3001/update', {formValues:editUserData, id:id}).then((response)=>{
         setEditUserData(
           editUserData.map((val)=>{
             return val.id == id ?{
